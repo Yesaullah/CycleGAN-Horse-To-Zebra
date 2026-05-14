@@ -256,7 +256,9 @@ python visualize_results.py \
 
 ## Results
 
-### Training Convergence (Baseline, Epochs 71–150)
+### Training Loss Log (Baseline, Epochs 71–150)
+
+> Training ran to the full 200 epochs. Loss logs for epochs 1–70 were not retained from the earlier cluster session, and logs for epochs 151–200 were not copied before cluster access was lost. The table below covers the available range.
 
 | Epoch | Generator Loss | Discriminator Loss |
 |-------|---------------|-------------------|
@@ -270,7 +272,7 @@ python visualize_results.py \
 | 140 | 3.376 | 0.178 |
 | 150 | 2.690 | 0.404 |
 
-Generator loss decreased steadily from ~3.6 to ~2.7 over this range. Discriminator loss remained in the 0.17–0.54 range, indicating stable adversarial training without collapse.
+Generator loss decreased steadily from ~3.6 to ~2.7 over epochs 71–150. Discriminator loss remained in the 0.17–0.54 range, indicating stable adversarial training without collapse.
 
 The baseline was trained to the full 200 epochs including the linear LR decay phase (epochs 100–200). Qualitative results saved at every 10 epochs are available in `results/baseline/`.
 
@@ -278,7 +280,7 @@ The modified (relu3_2 perceptual loss) model was trained to epoch 90. Qualitativ
 
 ### Observations
 
-- **Horse → Zebra** translation produces consistently good results at epoch 150: stripes are well-placed and textures are plausible.
+- **Horse → Zebra** translation produces consistently good results by epoch 200: stripes are well-placed and textures are plausible.
 - **Zebra → Horse** is visibly weaker — a known asymmetry documented in the original CycleGAN paper. Removing the high-frequency stripe pattern is structurally harder than adding one. Background domain shift (savanna vs. varied environments) also contributes.
 
 ---
